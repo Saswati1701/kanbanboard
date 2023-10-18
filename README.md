@@ -28,3 +28,31 @@ Users should also be able to sort the displayed tickets in two ways:
 2 - Medium
 1 - Low
 0 - No priority
+
+# Order of implementation
+- creating basic frontend layout using dummy data
+
+# reducer data
+{
+    groupByKey: <status/users/priority>
+    data: {
+        todo: [],
+        done: []
+    }
+}
+
+
+function parseDataAsPerGroup (data, groupByKey) { // status, users, priority
+    let parsedData = {};
+    parsedData.groupByKey = groupByKey;
+
+    // logic to segregate by groupby , todo, done, pending
+    let dumm = {
+        todo: [],
+        done: []
+    }
+
+    parsedData.data = dumm;
+
+    return parsedData;
+}
