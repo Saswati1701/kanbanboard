@@ -1,7 +1,11 @@
 import React from 'react'
 import Filter from './Filter'
+import { useSelector } from 'react-redux';
 
 const Button = () => {
+    const groupKey = useSelector(state => state.groupByKeyword);
+    const sortKey = useSelector(state => state.sortByKeyword);
+
     const grouping = [
         'status', 'users', 'priority'
       ];
@@ -10,8 +14,8 @@ const Button = () => {
     ];
   return (
     <div className='button-container'>
-        <Filter name="Select Group" option = {grouping} />
-        <Filter name="Select Order" option = {ordering} />
+        <Filter type="group" selected={groupKey} name="Select Group" option = {grouping} />
+        <Filter type="sort" selected={sortKey} name="Select Order" option = {ordering} />
     </div>
   )
 }

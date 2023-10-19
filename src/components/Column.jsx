@@ -2,7 +2,7 @@ import React from 'react'
 import Card from './Card';
 
 const Column = ({groupKey, columnData}) => {
-    console.log(groupKey, columnData);
+    // console.log(groupKey, columnData);
   return (
     <div className='column-container'>
         {groupKey}
