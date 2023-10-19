@@ -1,12 +1,12 @@
 import React from 'react'
 
 
-const Card = ({data}) => {
+const Card = ({id, title, tag, status}) => {
   return (
     <div className='card-container'>
       <div>
-        <p style={{color: "#9c9b9f",margin:"12px 0 0 0"}}>{data.id}</p>
-        <p style={{fontWeight:"500", margin:"2px 0 0 0"}}>{data.title}</p>
+        <p style={{color: "#9c9b9f",margin:"12px 0 0 0"}}>{id}</p>
+        <p style={{fontWeight:"500", margin:"2px 0 0 0"}}>{title}</p>
         {/* {data.priority} */}
         {/* {data.status} */}
       </div>
