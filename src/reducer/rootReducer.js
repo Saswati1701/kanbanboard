@@ -20,7 +20,7 @@ const jobReducer = (state = initialState, action) => {
                 tickets: action.payload.tickets,
                 users: action.payload.users,
                 groupByKeyword: action.payload.groupByKeyword,
-                groupByData: action.payload.data
+                groupByData: action.payload.groupByData
             }
 
         case 'CHANGE_ORDERBY_DATA':
