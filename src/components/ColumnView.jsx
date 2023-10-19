@@ -30,8 +30,10 @@ const ColumnView = () => {
           ))} */}
           <div className='column-header'>
             <div className='column-header-left'>
-              <img src={Plus} alt="" height="12px" />
-              <div>{column[index].title}</div>
+              <div className='column-header-title'>
+                <img src={Plus} alt="" height="12px" />
+                <div style={{margin: "0px 12px 0px 12px"}}>{column[index].title}</div>
+              </div>
               <div>{column[index].value.length}</div>
             </div>
             <div className='column-header-right'>
@@ -41,7 +43,7 @@ const ColumnView = () => {
           </div>
           {column[index]?.value?.map((elem) => {
             return (
-              <Card id={elem.id} title={elem.title} tag={elem.tag} />
+              <Card id={elem.id} title={elem.title} tag={elem.tag} priority = {elem.priority} />
             );
           })}
 

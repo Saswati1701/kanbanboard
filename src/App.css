@@ -43,6 +43,7 @@ body{
 .header-container{
   background-color: white;
   padding: 15px 25px;
+  margin: 0 0 28px 0;
   /* height: 80px;  */
 
 }
@@ -62,7 +63,6 @@ body{
   border-radius: 5px;
   font-weight: bold;
   border: 1px solid #dbdbdb;
-  /* color: black; */
   cursor: pointer;
   
 }
@@ -117,14 +117,23 @@ body{
 }
 
 .column-header{
-  border: 1px solid red;
+  width: 105%;
+  /* border: 1px solid red; */
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  padding: 0px 0px;
+}
+
+.column-header-title{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .column-header-left{
-  border: 1px solid orange;
+  /* border: 1px solid orange; */
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -132,9 +141,11 @@ body{
 }
 
 .column-header-right{
-  border: 1px solid blue;
+  width: 20%;
+  /* border: 1px solid blue; */
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   align-items: center;
 }
 
