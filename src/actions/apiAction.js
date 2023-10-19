@@ -4,7 +4,7 @@ export function parseDataAsPerGroup (data, groupByKey) { // status, userId, prio
     
     // logic to segregate by groupby , todo, done, pending
     var uniqueGroupByKeys = new Set();
-    console.log('pdata', data);
+    // console.log('pdata', data);
     
     for (let i = 0; i < data.length; i++) {
         uniqueGroupByKeys.add(data[i][groupByKey]);        
@@ -15,8 +15,8 @@ export function parseDataAsPerGroup (data, groupByKey) { // status, userId, prio
     uniqueGroupByKeys.forEach((item) => {
         helperData[item] = [];
 
-        for (let i = 0; i < data.tickets.length; i++) {
-            const ticket = data.tickets[i];
+        for (let i = 0; i < data.length; i++) {
+            const ticket = data[i];
             if (ticket[groupByKey] === item) {
                 helperData[item].push(ticket);
             }
@@ -39,9 +39,8 @@ export const getData = (groupByKeyword) => {
             .then(data => {
                 const parseddata = parseDataAsPerGroup(data.tickets, groupByKeyword);
                 data.groupByKeyword = groupByKeyword;
-                // data.data = parseddata.data;
-                console.log('dddd', data);
-                console.log('parseddata', parseddata);
+                data.groupByData = parseddata.data;
+                // console.log('dddd', data);
                 dispatch({ type: 'GET_API_DATA', payload: data })
             })
     }
