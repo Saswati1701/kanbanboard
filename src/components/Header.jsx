@@ -4,7 +4,7 @@ import Button from './Button';
 const Header = () => {
   return (
     <div className='header-container'>
-        <Button/>
+        <Button />
     </div>
   )
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 import Filter from './Filter'
 
-const Button = (handleSelect) => {
+const Button = () => {
     const grouping = [
         'status', 'users', 'priority'
       ];
@@ -10,8 +10,8 @@ const Button = (handleSelect) => {
     ];
   return (
     <div className='button-container'>
-        <Filter option = {grouping} onChange={handleSelect}/>
-        <Filter option = {ordering} onChange={handleSelect}/>
+        <Filter name="Select Group" option = {grouping} />
+        <Filter name="Select Order" option = {ordering} />
     </div>
   )
 }
