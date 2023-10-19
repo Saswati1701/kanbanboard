@@ -1,6 +1,5 @@
 import React from 'react'
-import { parseDataAsPerGroup } from '../api/getData'
-import data from '../api/data.json'
+// import data from '../api/data.json'
 import Column from './Column';
 import { useSelector } from 'react-redux';
 import Card from './Card';
