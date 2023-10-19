@@ -1,9 +1,8 @@
 import React from 'react'
-import Button from './Button';
-import { TiThList } from "react-icons/ti";
 import { useDispatch, useSelector} from "react-redux";
 import { useState, useEffect } from 'react';
 import { selectData } from '../DataAction';
+import Filter from '../assets/setting.png'
 const getGroup = () => {
   // console.log(localStorage.getItem("group"));
 
@@ -58,7 +57,7 @@ const Header = () => {
         <button
           className='btn'
           onClick={() => setDisplayOnClick(!displayOnClick)}
-        >
+        ><img src={Filter} alt="" srcset="" height="16px" style={{margin:"0 5px 0 0"}}/>
           Display
         </button>
         {displayOnClick && (
