@@ -47,6 +47,11 @@ body{
 
 }
 
+.icons{
+  height: 20px;
+  width: 20px;
+}
+
 .btn{
   background-color: white;
   box-shadow: 0 0 6px #ccc9d5;
@@ -109,6 +114,28 @@ body{
   justify-content: flex-start;
   overflow-x: scroll;
   
+}
+
+.column-header{
+  border: 1px solid red;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.column-header-left{
+  border: 1px solid orange;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.column-header-right{
+  border: 1px solid blue;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .card-container{

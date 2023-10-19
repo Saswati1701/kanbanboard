@@ -5,6 +5,7 @@ import Column from './Column';
 import { useSelector } from 'react-redux';
 import Card from './Card';
 import Ellipsis from '../assets/ellipsis.png'
+import Plus from '../assets/plus.png'
 
 const ColumnView = () => {
     const {selectedData} = useSelector(
@@ -28,12 +29,15 @@ const ColumnView = () => {
           {/* {selectedData.map((card) => (
               <Card data={card} />
           ))} */}
-          <div>
-            <div>
-              {column[index].title}{column[index].value.length}
+          <div className='column-header'>
+            <div className='column-header-left'>
+              <img src={Plus} alt="" height="12px" />
+              <div>{column[index].title}</div>
+              <div>{column[index].value.length}</div>
             </div>
-            <div>
+            <div className='column-header-right'>
               <img className='icons' src={Ellipsis} alt="" srcset="" />
+              <img src={Plus} alt="" height="12px" />
             </div>
           </div>
           {column[index]?.value?.map((elem) => {
