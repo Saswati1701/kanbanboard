@@ -1,16 +1,14 @@
 import React from 'react'
-import Dropdown from 'react-dropdown';
-import 'react-dropdown/style.css';
 
-const Filter = ({option, handleSelect}) => {
-    const defaultOption = option[0];
+const Filter = ({option, name, handleSelect}) => {
     return (
         <div className='dropdown'>
-            <Dropdown 
-                options={option} 
-                onChange={handleSelect} 
-                value={defaultOption} 
-                placeholder="Select an option" />
+            <select name={name} id="name">
+                <option value="" selected disabled>Select</option>
+                {option.map((item) => (
+                    <option value={item}>{item}</option>
+                ))}
+            </select>
         </div>
   )
 }

@@ -5,54 +5,7 @@ import { useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
 import { selectData } from '../DataAction';
 
-
-const getGroup = () => {
-  // console.log(localStorage.getItem("group"));
-
-  if(localStorage.getItem("group")){
-    return localStorage.getItem("group");
-  }else{
-    return "status";
-  }
-}
-
-const getOrder = () => {
-  if(localStorage.getItem("order")){
-    return localStorage.getItem("order");
-  }else{
-    return "priority";
-  }
-}
-
-
-const Button = ({displayOnClick, setDisplayOnClick}) => {
-  const dispatch = useDispatch();
-  const {allTickets, allUser} = useSelector(state => state.DataReducer);
-  const [groupValue, setGroupValue] = useState(getGroup());
-  const [orderValue, setOrderValue] = useState(getOrder());
-
-  const handleGroupValue = (e, valueBool) => {
-    if(valueBool){
-      setGroupValue(e.target.value);
-      setDisplayOnClick(!displayOnClick);
-      localStorage.setItem("group", e.target.value);
-    }else{
-      setOrderValue(e.target.value);
-    setDisplayOnClick(!displayOnClick);
-    localStorage.setItem("order", e.target.value);
-    }
-  }
-
-  useEffect(() => {
-    if(groupValue === 'user'){
-      dispatch(selectData(groupValue, {
-        allTickets, allUser
-      }, orderValue))
-    }else{
-      dispatch(selectData(groupValue, allTickets, orderValue));
-    }
-  }, [allTickets, dispatch, groupValue, allUser, orderValue]);
- 
+const Button = () => {
     const grouping = [
         'status', 'users', 'priority'
       ];
