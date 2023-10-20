@@ -3,6 +3,7 @@ import { useDispatch, useSelector} from "react-redux";
 import { useState, useEffect } from 'react';
 import { selectData } from '../actions/DataAction';
 import Filter from '../assets/setting.png'
+import OutsideAlerter from './OutsideAlerter';
 const getGroup = () => {
   // console.log(localStorage.getItem("group"));
 
@@ -53,6 +54,7 @@ const Header = () => {
   
   return (
     <div className="header-container">
+      <OutsideAlerter>
       <div className="displayButton">
         <button
           className='btn'
@@ -80,6 +82,7 @@ const Header = () => {
             </div>
         )}
       </div>
+      </OutsideAlerter>
     </div>
   );
 };
