@@ -1,3 +1,12 @@
+
+```git checkout main```
+
+```npm i```
+
+```npm start```
+
+
+
 # requirements
 - render columns based on data 
 - render cards based on data returned after grouping

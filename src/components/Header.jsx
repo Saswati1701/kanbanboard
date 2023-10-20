@@ -4,9 +4,8 @@ import { useState, useEffect } from 'react';
 import { selectData } from '../actions/DataAction';
 import Filter from '../assets/setting.png'
 import OutsideAlerter from './OutsideAlerter';
-const getGroup = () => {
-  // console.log(localStorage.getItem("group"));
 
+const getGroup = () => {
   if(localStorage.getItem("group")){
     return localStorage.getItem("group");
   }else{
@@ -40,7 +39,9 @@ const Header = () => {
     localStorage.setItem("order", e.target.value);
     }
   }
-
+  const closePopUp = () => {
+    setDisplayOnClick(false);
+  };
   useEffect(() => {
     if(groupValue === 'user'){
       dispatch(selectData(groupValue, {
@@ -51,10 +52,9 @@ const Header = () => {
     }
   }, [allTickets, dispatch, groupValue, allUser, orderValue]);
  
-  
   return (
+    <OutsideAlerter callback={closePopUp}>
     <div className="header-container">
-      <OutsideAlerter>
       <div className="displayButton">
         <button
           className='btn'
@@ -82,8 +82,8 @@ const Header = () => {
             </div>
         )}
       </div>
-      </OutsideAlerter>
     </div>
+    </OutsideAlerter>
   );
 };
 

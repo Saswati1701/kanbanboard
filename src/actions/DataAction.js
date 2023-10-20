@@ -52,15 +52,6 @@ export const selectData = (group, allTickets, orderValue) => async (dispatch) =>
                 })
             })
 
-            // selectedData.push({
-            //     [4] : {
-            //         title : "Cancelled",
-            //         value : []
-            //     }
-            // })
-
-            console.log('ssss', selectedData);
-
         }else if(group === 'user'){
             user = true;
             allTickets?.allUser?.forEach((elem, index) => {

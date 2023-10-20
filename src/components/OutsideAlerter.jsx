@@ -1,18 +1,21 @@
 import React, { useRef, useEffect } from "react";
 import PropTypes from "prop-types";
+import { useDispatch } from "react-redux";
 
 /**
  * Hook that alerts clicks outside of the passed ref
  */
-function useOutsideAlerter(ref) {
+export function useOutsideAlerter(ref, callback) {
   useEffect(() => {
     /**
      * Alert if clicked on outside of element
      */
     function handleClickOutside(event) {
       if (ref.current && !ref.current.contains(event.target)) {
-        alert("You clicked outside of me!");
-      }
+        // alert("You clicked outside of me!");
+        // setDisplayOnClick(false);
+        callback();
+        }
     }
     // Bind the event listener
     document.addEventListener("mousedown", handleClickOutside);
@@ -20,7 +23,7 @@ function useOutsideAlerter(ref) {
       // Unbind the event listener on clean up
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [ref]);
+  }, [ref, callback]);
 }
 
 /**
@@ -28,7 +31,7 @@ function useOutsideAlerter(ref) {
  */
 function OutsideAlerter(props) {
   const wrapperRef = useRef(null);
-  useOutsideAlerter(wrapperRef);
+  useOutsideAlerter(wrapperRef, props.callback);
 
   return <div ref={wrapperRef}>{props.children}</div>;
 }

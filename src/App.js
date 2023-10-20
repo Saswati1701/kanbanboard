@@ -1,5 +1,4 @@
 import './App.css';
-import data from './api/data.json'
 import ColumnView from './components/ColumnView';
 import Header from './components/Header';
 import { useDispatch, useSelector} from 'react-redux'
