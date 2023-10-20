@@ -6,7 +6,7 @@ const Column = ({groupKey, columnData}) => {
   const { selectedData, user } = useSelector(
     (state) => state.SelectDataReducer
   );
-    console.log(groupKey, columnData);
+    console.log('aa', groupKey, columnData);
   return (
     <div className='column-container'>
         {groupKey}

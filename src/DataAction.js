@@ -20,6 +20,26 @@ export const selectData = (group, allTickets, orderValue) => async (dispatch) =>
         let user = false;
         let mySet = new Set();
         let arr = [], selectedData = [];
+        let icons = {
+            status: {
+                todo: "fa fa-circle-o",
+                inprogress: "fa fa-circle",
+                backlog: "fa fa-circle-o",
+                done: "fa fa-check-circle",
+                pending: "fa fa-circle-o"
+            },
+            priority: {
+                0: "fa fa-angle-double-down",
+                1: "fa fa-angle-down",
+                2: "fa fa-bars",
+                3: "fa fa-angle-up",
+                4: "fa fa-angle-double-up"
+            },
+            usersId: {
+                online: "fa fa-user-circle",
+                offline: "fa fa-user-circle-o"
+            }
+        }
 
         if(group === 'status'){
             allTickets.forEach((elem) => {

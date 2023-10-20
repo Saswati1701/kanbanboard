@@ -5,7 +5,7 @@ const Card = ({id, title, tag, status, priority}) => {
   return (
     <div className='card-container'>
       <div>
-        <p style={{color: "#9c9b9f",margin:"12px 0 0 0"}}>{id} [{priority}]</p>
+        <p style={{color: "#9c9b9f",margin:"12px 0 0 0"}}>{id} [{priority}] <i class="fa fa-user-circle-o" aria-hidden="true"></i> </p>
         <p style={{fontWeight:"500", margin:"2px 0 0 0"}}>{title}</p>
         {/* {data.priority} */}
         {/* {data.status} */}

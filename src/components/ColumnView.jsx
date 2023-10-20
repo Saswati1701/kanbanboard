@@ -10,16 +10,10 @@ const ColumnView = () => {
     const {selectedData} = useSelector(
       (state) => state.SelectDataReducer
     );
-    // var columnsData = parseDataAsPerGroup(data, "priority");
-    var dataa = [];
-    // for(let i=0; i<columnsData.data.length; i++){
-    //     dataa.push(columnsData.data[i])
-    // }
-    // console.log(dataa);
-    // for(let key in selectedData.data){
-    //     dataa.push({groupKey: key, columnData: columnsData.data[key]})
-    // }
-    // console.log(columnsData.data);
+
+    const state2 = useSelector(state => state);
+    
+    console.log(state2);
   return (
     <div className='columnview-container'>
       { selectedData?.map((column, index) => (
