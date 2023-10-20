@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector} from "react-redux";
 import { useState, useEffect } from 'react';
-import { selectData } from '../DataAction';
+import { selectData } from '../actions/DataAction';
 import Filter from '../assets/setting.png'
 const getGroup = () => {
   // console.log(localStorage.getItem("group"));

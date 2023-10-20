@@ -19,34 +19,26 @@ export const selectData = (group, allTickets, orderValue) => async (dispatch) =>
 
         let user = false;
         let mySet = new Set();
-        let arr = [], selectedData = [];
-        let icons = {
-            status: {
-                todo: "fa fa-circle-o",
-                inprogress: "fa fa-circle",
-                backlog: "fa fa-circle-o",
-                done: "fa fa-check-circle",
-                pending: "fa fa-circle-o"
-            },
-            priority: {
-                0: "fa fa-angle-double-down",
-                1: "fa fa-angle-down",
-                2: "fa fa-bars",
-                3: "fa fa-angle-up",
-                4: "fa fa-angle-double-up"
-            },
-            usersId: {
-                online: "fa fa-user-circle",
-                offline: "fa fa-user-circle-o"
-            }
-        }
+        let arr = [];
+        let selectedData = [
+            
+        ];
 
         if(group === 'status'){
             allTickets.forEach((elem) => {
                 mySet.add(elem.status);
             })
+
+            mySet.add("Done");
+            mySet.add("Backlog");
+            mySet.add("Cancelled");
+            mySet.add("In progress");
+            mySet.add("Todo");
+
+
     
             arr = [...mySet];
+            console.log([...mySet]);
     
             arr.forEach((elem, index) => {
                 let arr = allTickets.filter((fElem) => {
@@ -59,6 +51,16 @@ export const selectData = (group, allTickets, orderValue) => async (dispatch) =>
                     }
                 })
             })
+
+            // selectedData.push({
+            //     [4] : {
+            //         title : "Cancelled",
+            //         value : []
+            //     }
+            // })
+
+            console.log('ssss', selectedData);
+
         }else if(group === 'user'){
             user = true;
             allTickets?.allUser?.forEach((elem, index) => {
@@ -102,7 +104,7 @@ export const selectData = (group, allTickets, orderValue) => async (dispatch) =>
             })
         }
         
-        dispatch({type : 'SELECT_DATA_SUCCESS', payload : {selectedData, user}});
+        dispatch({type : 'SELECT_DATA_SUCCESS', payload : {selectedData, user, group}});
 
     } catch (error) {
         dispatch({type : 'SELECT_DATA_FAILURE', payload : error.message})

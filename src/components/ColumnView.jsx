@@ -1,31 +1,28 @@
 import React from 'react'
-// import data from '../api/data.json'
-import Column from './Column';
 import { useSelector } from 'react-redux';
 import Card from './Card';
 import Ellipsis from '../assets/ellipsis.png'
 import Plus from '../assets/plus.png'
 
 const ColumnView = () => {
-    const {selectedData} = useSelector(
-      (state) => state.SelectDataReducer
-    );
-
-    const state2 = useSelector(state => state);
+    var y = Math.random();
+    if (y < 0.5)
+      y = 0
+    else
+      y= 1
     
-    console.log(state2);
+    const selectedData = useSelector(state => state.SelectDataReducer)   
+    console.log(selectedData);
+    const data = useSelector(state => state.DataReducer) 
+    console.log(data.icons[selectedData.group]);
   return (
     <div className='columnview-container'>
-      { selectedData?.map((column, index) => (
-        <div className='column-container'>
-          {/* {groupKey} */}
-          {/* {selectedData.map((card) => (
-              <Card data={card} />
-          ))} */}
+      { selectedData?.selectedData.map((column, index) => (
+        <div className='column-container'>  
           <div className='column-header'>
             <div className='column-header-left'>
               <div className='column-header-title'>
-                <img src={Plus} alt="" height="12px" />
+                { selectedData.group == "user" ? <i class={data.icons[selectedData.group][index % 2 ? "online" : "offline"]} aria-hidden="true"></i> : <i class={data.icons[selectedData.group][column[index].title]} aria-hidden="true"></i> }
                 <div style={{margin: "0px 12px 0px 12px"}}>{column[index].title}</div>
               </div>
               <div>{column[index].value.length}</div>

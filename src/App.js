@@ -3,7 +3,7 @@ import data from './api/data.json'
 import ColumnView from './components/ColumnView';
 import Header from './components/Header';
 import { useDispatch, useSelector} from 'react-redux'
-import { fetchAllData } from './DataAction';
+import { fetchAllData } from './actions/DataAction';
 import { useEffect } from 'react';
 function App() {
   // log the imported data
